@@ -21,3 +21,18 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+    import pandas as pd
+    tbl0 = pd.read_csv('files/input/tbl0.tsv', sep = '\t')
+    dicAux = {}
+    for r in tbl0['c1']:
+        if r in dicAux:
+            dicAux[r] += 1
+        else:
+            dicAux[r] = 1
+
+    dicAux = dict(sorted(dicAux.items()))
+    #print(pd.Series(dicAux))
+    return pd.Series(dicAux)
+    # return tbl0['c1'].value_counts().sort_index()
+# pregunta_03()
+
